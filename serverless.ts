@@ -1,7 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
-import createUser from '@functions/create-user';
+import { createUser, signIn } from '@src/functions';
 
 const serverlessConfiguration: AWS = {
   service: 'dash-user-api',
@@ -32,9 +31,9 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { 
-    hello,
-    createUser 
+  functions: {     
+    createUser,
+    signIn 
   },
   package: { individually: true },
   custom: {

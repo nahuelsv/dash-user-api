@@ -1,0 +1,4 @@
+export enum EValidations {
+    EMAIL_FORMAT = "INVALID_EMAIL_FORMAT",
+    PASSWORD_LENGTH = "INVALID_PASSWORD_LENGTH"
+}

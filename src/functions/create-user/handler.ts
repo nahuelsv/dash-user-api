@@ -5,7 +5,7 @@ import schema from './schema';
 import userService from '@services/users';
 import { IUser } from '@models/user';
 import { isAValidEmail, isAValidPassword } from '@libs/validators';
-import { EValidations } from '@enums/validations';
+import { EValidations, EError } from '@src/enums';
 
 const register: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
   if ( !isAValidEmail(event.body.email) )
@@ -19,7 +19,7 @@ const register: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event
     let response = await new userService().createUser(user)
     return formatJSONResponse({ message: response})
   } catch (err) {
-    return formatJSONResponse({ error: err }, 400)
+    return formatJSONResponse({ error: EError.SOMETHING_WRONG }, 400)
   }  
 };
 

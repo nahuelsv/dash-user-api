@@ -1,0 +1,3 @@
+export enum EError {
+    SOMETHING_WRONG = "OOPS_SOMETHING_WENT_WRONG"
+}

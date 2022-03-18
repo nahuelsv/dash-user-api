@@ -22,16 +22,15 @@ export default class userService {
         }
     }
 
-    /**
-     * TODO: Add index to retrieve only the email
-     */
     async findUser(user: IBaseUser): Promise<IUser[]> {
         try {
             let foundUser = await this.docClient.query({
                 TableName: this.userTable,
-                KeyConditionExpression: "email = :email",
+                IndexName: "authenticate-index",
+                KeyConditionExpression: "email = :email and password = :password",
                 ExpressionAttributeValues: {
-                    ":email": user.email
+                    ":email": user.email,
+                    ":password": user.password
                 }
             }).promise()
             return foundUser.Items as IUser[];

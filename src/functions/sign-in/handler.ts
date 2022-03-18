@@ -23,7 +23,7 @@ const signIn: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) 
 
     return formatJSONResponse({ token: JWT.sign( { email: foundUser[0].email} , process.env.JWT_SECRET) })
   } catch (err) {
-    return formatJSONResponse({ error: EError.SOMETHING_WRONG }, 400)
+    return formatJSONResponse({ error: err }, 400)
   }  
 };
 

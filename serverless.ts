@@ -1,7 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
-import createUser from '@functions/create-user';
+import { createUser, signIn } from '@src/functions';
 
 const serverlessConfiguration: AWS = {
   service: 'dash-user-api',
@@ -29,12 +28,13 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      JWT_SECRET: 'ASFASKMFLA124123!@!!!X' // for real scenarios get this value from the current env or use a secret manager
     },
   },
   // import the function via paths
-  functions: { 
-    hello,
-    createUser 
+  functions: {     
+    createUser,
+    signIn 
   },
   package: { individually: true },
   custom: {

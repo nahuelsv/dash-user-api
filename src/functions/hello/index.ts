@@ -1,4 +1,3 @@
-import schema from './schema';
 import { handlerPath } from '@libs/handler-resolver';
 
 export default {
@@ -9,7 +8,9 @@ export default {
         method: 'post',
         path: 'hello',        
         authorizer: {
-          name: "Authorizer"
+          name: "Authorizer",
+          type: "request",
+          resultTtlInSeconds: 3600 // cache the result for 1 hour
         }
       },
     },

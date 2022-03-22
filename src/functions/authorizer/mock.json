@@ -1,6 +1,8 @@
 {
+  "httpMethod": "POST",
   "headers": {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhY2F4cy4yQGdtYWlsLmNvbSIsImlhdCI6MTY0Nzg4MjMyNn0.FbtKdALXaNZ1-4nckKfsoMmxf3NUGHS6TWoiwwSyTuQs"
   },
   "body": "{\"email\": \"Frederic\", \"password\": \"Frederic1\"}"
 }
